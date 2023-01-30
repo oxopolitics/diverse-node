@@ -1,7 +1,3 @@
-import { db } from "../../index";
-
-export const TABLE_USERS = "users";
-export const usersCollection = db.collection(TABLE_USERS);
 
 export interface UserSchema {
   id: string;
@@ -9,5 +5,3 @@ export interface UserSchema {
   updatedAt: number;
   clusterId?: string;
 }
-
-export interface UserInputSchema extends Omit<UserSchema, "id"> {}

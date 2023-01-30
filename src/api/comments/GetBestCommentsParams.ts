@@ -1,5 +1,6 @@
 import { CommentSchema } from "../../models/comments/Comment";
 import { StatsForClusterSchema } from "../../models/clusters/StatsForCluster";
+import {StatsForCommentSchema} from "../../models/comments/StatsForComment";
 
 export interface GetBestCommentsRequestParams {
   projectId: string;
@@ -14,6 +15,7 @@ export interface GetBestCommentsResponseParams {
     string,
     {
       bestComment: CommentSchema;
+      bestCommentStats: StatsForCommentSchema;
       clusterStats: StatsForClusterSchema;
       topComments: CommentSchema[];
     }

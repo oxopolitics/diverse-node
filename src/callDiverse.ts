@@ -16,7 +16,7 @@ const fetch = require("node-fetch");
  *
  * This endpoint supports CORS.
  */
-export function callDiverse<T>(api: DiverseAPI, data: T) {
+export function callDiverse<T, R>(api: DiverseAPI, data: T): Promise<R> {
     let url = DIVERSE_URL[api];
 
     if (!url) {
@@ -36,7 +36,7 @@ export function callDiverse<T>(api: DiverseAPI, data: T) {
       },
       body: JSON.stringify(data),
     })
-      .then((r: Response) => {
-        return r.headers.get("content-type") === "application/json" ? r.json() : r.text();
+      .then(async (r: Response) => {
+        return (r.headers.get("content-type") === "application/json" ? await r.json() : JSON.parse(await r.text())) as R;
       });
 }

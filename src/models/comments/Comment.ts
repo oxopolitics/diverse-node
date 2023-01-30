@@ -1,7 +1,3 @@
-import { db } from "../../index";
-
-export const TABLE_COMMENTS = "comments";
-export const collectionComments = db.collection(TABLE_COMMENTS);
 
 export enum Gender {
   MALE = "MALE",
@@ -25,5 +21,3 @@ export interface CommentSchema {
     regionId?: string;
   };
 }
-
-export interface CommentInputSchema extends Omit<CommentSchema, "id"> {}
