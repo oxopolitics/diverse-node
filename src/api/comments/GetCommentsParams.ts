@@ -1,4 +1,4 @@
-import { DiverseCommentSchema } from "./DiverseCommentSchema";
+import { CommentSchema } from "../../models/comments/Comment";
 
 export interface GetCommentsRequestParams {
   projectId: string;
@@ -13,5 +13,5 @@ export interface GetCommentsResponseParams {
   page: number;
   commentsPerPage: number;
   hasMore: boolean;
-  comments: DiverseCommentSchema[];
+  comments: CommentSchema[];
 }

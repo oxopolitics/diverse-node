@@ -1,7 +1,8 @@
-import { Gender } from "./DiverseCommentSchema";
+import { Gender } from "../../models/comments/Comment";
 
 export interface AddCommentRequestParams {
   commentId?: string;
+
   comment: string;
   userId: string;
   projectId: string;

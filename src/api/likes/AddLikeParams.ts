@@ -1,4 +1,4 @@
-import { Gender } from "../comments/DiverseCommentSchema";
+import { Gender } from "../../models/comments/Comment";
 
 export interface AddOrUpdateLikeRequestParams {
   projectId: string;

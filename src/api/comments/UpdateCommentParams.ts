@@ -1,6 +1,7 @@
-import { Gender } from "./DiverseCommentSchema";
+import { Gender } from "../../models/comments/Comment";
 
 export interface UpdateCommentRequestParams {
+  projectId: string;
   commentId: string;
   comment: string;
   parentCommentId?: string;
