@@ -1,12 +1,13 @@
 {
   "name": "diverse-node",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "Node module to access Diverse by oxopolitics.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
-    "build": "tsc"
+    "build": "tsc",
+    "prepublish": "yarn build"
   },
   "repository": {
     "type": "git",
