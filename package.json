@@ -1,0 +1,29 @@
+{
+  "name": "diverse-node",
+  "version": "1.0.9",
+  "description": "Node module to access Diverse by oxopolitics.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oxopolitics/diverse-node.git"
+  },
+  "keywords": [
+    "api"
+  ],
+  "author": "Will Hohyon Ryu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oxopolitics/diverse-node/issues"
+  },
+  "homepage": "https://github.com/oxopolitics/diverse-node#readme",
+  "dependencies": {
+    "@types/node": "^18.11.18",
+    "node-fetch": "^3.3.0",
+    "typescript": "^4.9.4"
+  }
+}
