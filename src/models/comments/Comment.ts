@@ -1,3 +1,4 @@
+import {StatsForCommentSchema} from "./StatsForComment";
 
 export enum Gender {
   MALE = "MALE",
@@ -20,4 +21,5 @@ export interface CommentSchema {
     gender?: Gender;
     regionId?: string;
   };
+  commentStats?: StatsForCommentSchema;
 }

@@ -15,7 +15,6 @@ export interface GetBestCommentsResponseParams {
     string,
     {
       bestComment: CommentSchema;
-      bestCommentStats: StatsForCommentSchema;
       clusterStats: StatsForClusterSchema;
       topComments: CommentSchema[];
     }
