@@ -27,14 +27,14 @@ export function callDiverse<T, R>(api: DiverseAPI, data: T): Promise<R> {
   }
 
   return fetch(url, {
+    mode: "no-cors",
     method: "POST",
     headers: {
       "Content-Type": "text/html; charset=UTF-8",
-      "Access-Control-Allow-Origin": "*",
     },
     body: JSON.stringify(data),
   })
     .then(async (r: Response) => {
-      return (r.headers.get("content-type") === "application/json" ? await r.json() : JSON.parse(await r.text())) as R;
+      return r.headers.get("content-type") === "application/json" ? r.json() : r.text();
     });
 }

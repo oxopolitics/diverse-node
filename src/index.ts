@@ -29,5 +29,5 @@ export function deleteLike(requestParams: DeleteLikeRequestParams): Promise<Dele
 
 
 export function getBestComments(requestParams: GetBestCommentsRequestParams): Promise<GetBestCommentsResponseParams> {
-  return callDiverse<GetBestCommentsRequestParams, GetBestCommentsResponseParams>(DiverseAPI.DELETE_LIKE, requestParams);
+  return callDiverse<GetBestCommentsRequestParams, GetBestCommentsResponseParams>(DiverseAPI.GET_BEST_COMMENTS, requestParams);
 }
