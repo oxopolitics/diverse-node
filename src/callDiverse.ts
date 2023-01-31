@@ -1,7 +1,4 @@
-import { Response } from "node-fetch";
-import { DIVERSE_URL, DiverseAPI } from "./diverse_constants";
-
-const fetch = require("node-fetch");
+import {DIVERSE_URL, DiverseAPI} from "./diverse_constants";
 
 /**
  * Returns the response body of the requested url, url should be encoded with encodeURIComponent if there are additional
@@ -17,26 +14,27 @@ const fetch = require("node-fetch");
  * This endpoint supports CORS.
  */
 export function callDiverse<T, R>(api: DiverseAPI, data: T): Promise<R> {
-    let url = DIVERSE_URL[api];
+  let url = DIVERSE_URL[api];
 
-    if (!url) {
-      throw new Error("URL is empty.");
-    }
+  if (!url) {
+    throw new Error("URL is empty.");
+  }
 
-    console.log("Request:", url);
+  console.log("Request:", url);
 
-    if (url.startsWith("/")) {
-      url = url.slice(1);
-    }
+  if (url.startsWith("/")) {
+    url = url.slice(1);
+  }
 
-    return fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "text/html; charset=UTF-8",
-      },
-      body: JSON.stringify(data),
-    })
-      .then(async (r: Response) => {
-        return (r.headers.get("content-type") === "application/json" ? await r.json() : JSON.parse(await r.text())) as R;
-      });
+  return fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "text/html; charset=UTF-8",
+      "Access-Control-Allow-Origin": "*",
+    },
+    body: JSON.stringify(data),
+  })
+    .then(async (r: Response) => {
+      return (r.headers.get("content-type") === "application/json" ? await r.json() : JSON.parse(await r.text())) as R;
+    });
 }
