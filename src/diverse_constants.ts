@@ -6,6 +6,7 @@ export enum DiverseAPI {
   ADD_OR_UPDATE_LIKE = "addOrUpdateLike",
   DELETE_LIKE = "deleteLike",
   GET_BEST_COMMENTS = "getBestComments",
+  GET_RECENT_NO_RESPONSE_COMMENTS = "getRecentZeroReactionComments",
 }
 
 export const DIVERSE_URL = {
@@ -15,4 +16,5 @@ export const DIVERSE_URL = {
   [DiverseAPI.ADD_OR_UPDATE_LIKE]: "https://asia-northeast3-oxopolitics-diverse.cloudfunctions.net/likes-addOrUpdateLike",
   [DiverseAPI.DELETE_LIKE]: "https://asia-northeast3-oxopolitics-diverse.cloudfunctions.net/likes-deleteLike",
   [DiverseAPI.GET_BEST_COMMENTS]: "https://asia-northeast3-oxopolitics-diverse.cloudfunctions.net/comments-getBestComments",
+  [DiverseAPI.GET_RECENT_NO_RESPONSE_COMMENTS]: "https://asia-northeast3-oxopolitics-diverse.cloudfunctions.net/comments-getRecentZeroReactionComments",
 };

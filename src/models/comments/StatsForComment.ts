@@ -3,6 +3,8 @@ export type TypeReactionCount = Record<string, number>;
 export interface StatsForCommentSchema {
   id: string;
   commentId: string;
+  postId: string;
+  projectId: string;
   updatedAt: number;
   totalReactionCount: number;
   reactionCount: TypeReactionCount;

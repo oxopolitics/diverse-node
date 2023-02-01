@@ -6,6 +6,10 @@ import {DeleteCommentRequestParams, DeleteCommentResponseParams} from "./api/com
 import {AddOrUpdateLikeRequestParams} from "./api/likes/AddLikeParams";
 import {DeleteLikeRequestParams, DeleteLikeResponseParams} from "./api/likes/DeleteLikeParams";
 import {GetBestCommentsRequestParams, GetBestCommentsResponseParams} from "./api/comments/GetBestCommentsParams";
+import {
+  GetRecentZeroReactionCommentsResponseParams,
+  GetRecentZeroReactionCommentsRequestParams
+} from "./api/comments/GetRecentZeroReactionCommentsParams";
 
 export function addComment(requestParams: AddCommentRequestParams): Promise<AddCommentResponseParams> {
   return callDiverse<AddCommentRequestParams, AddCommentResponseParams>(DiverseAPI.ADD_COMMENT, requestParams);
@@ -30,4 +34,8 @@ export function deleteLike(requestParams: DeleteLikeRequestParams): Promise<Dele
 
 export function getBestComments(requestParams: GetBestCommentsRequestParams): Promise<GetBestCommentsResponseParams> {
   return callDiverse<GetBestCommentsRequestParams, GetBestCommentsResponseParams>(DiverseAPI.GET_BEST_COMMENTS, requestParams);
+}
+
+export function getRecentNoResponseComments(requestParams: GetRecentZeroReactionCommentsRequestParams): Promise<GetRecentZeroReactionCommentsResponseParams> {
+  return callDiverse<GetRecentZeroReactionCommentsRequestParams, GetRecentZeroReactionCommentsResponseParams>(DiverseAPI.GET_RECENT_NO_RESPONSE_COMMENTS, requestParams);
 }
