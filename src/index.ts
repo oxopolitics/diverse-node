@@ -1,41 +1,68 @@
 import {callDiverse} from "./callDiverse";
-import {DiverseAPI} from "./diverse_constants";
 import {UpdateCommentRequestParams, UpdateCommentResponseParams} from "./api/comments/UpdateCommentParams";
 import {AddCommentRequestParams, AddCommentResponseParams} from "./api/comments/AddCommentParams";
 import {DeleteCommentRequestParams, DeleteCommentResponseParams} from "./api/comments/DeleteCommentParams";
 import {AddOrUpdateLikeRequestParams} from "./api/likes/AddLikeParams";
 import {DeleteLikeRequestParams, DeleteLikeResponseParams} from "./api/likes/DeleteLikeParams";
 import {GetBestCommentsRequestParams, GetBestCommentsResponseParams} from "./api/comments/GetBestCommentsParams";
-import {
-  GetRecentZeroReactionCommentsResponseParams,
-  GetRecentZeroReactionCommentsRequestParams
-} from "./api/comments/GetRecentZeroReactionCommentsParams";
 
-export function addComment(requestParams: AddCommentRequestParams): Promise<AddCommentResponseParams> {
-  return callDiverse<AddCommentRequestParams, AddCommentResponseParams>(DiverseAPI.ADD_COMMENT, requestParams);
-}
+import {DiverseEndpoint} from "./diverse_constants";
+import {GetRecentCommentsRequestParams, GetRecentCommentsResponseParams} from "./api/comments/GetRecentCommentsParams";
 
-export function updateComment(requestParams: UpdateCommentRequestParams): Promise<UpdateCommentResponseParams> {
-  return callDiverse<UpdateCommentRequestParams, UpdateCommentResponseParams>(DiverseAPI.UPDATE_COMMENT, requestParams);
-}
+export class DiverseClient {
+  projectId: string;
+  constructor(projectId: string) {
+    this.projectId = projectId;
+  }
 
-export function deleteComment(requestParams: DeleteCommentRequestParams): Promise<DeleteCommentResponseParams> {
-  return callDiverse<DeleteCommentRequestParams, DeleteCommentResponseParams>(DiverseAPI.DELETE_COMMENT, requestParams);
-}
+  addComment(requestParams: Omit<AddCommentRequestParams, "projectId">): Promise<AddCommentResponseParams> {
+    return callDiverse<AddCommentRequestParams, AddCommentResponseParams>(DiverseEndpoint.ADD_COMMENT,
+      {
+        ...requestParams,
+        projectId: this.projectId
+      });
+  }
 
-export function addOrUpdateLike(requestParams: AddOrUpdateLikeRequestParams): Promise<DeleteCommentResponseParams> {
-  return callDiverse<DeleteCommentRequestParams, DeleteCommentResponseParams>(DiverseAPI.ADD_OR_UPDATE_LIKE, requestParams);
-}
+   updateComment(requestParams: Omit<UpdateCommentRequestParams, "projectId">): Promise<UpdateCommentResponseParams> {
+    return callDiverse<UpdateCommentRequestParams, UpdateCommentResponseParams>(DiverseEndpoint.UPDATE_COMMENT, {
+      ...requestParams,
+      projectId: this.projectId
+    });
+  }
 
-export function deleteLike(requestParams: DeleteLikeRequestParams): Promise<DeleteLikeResponseParams> {
-  return callDiverse<DeleteLikeRequestParams, DeleteLikeResponseParams>(DiverseAPI.DELETE_LIKE, requestParams);
-}
+   deleteComment(requestParams: Omit<DeleteCommentRequestParams, "projectId"> ): Promise<DeleteCommentResponseParams> {
+    return callDiverse<DeleteCommentRequestParams, DeleteCommentResponseParams>(DiverseEndpoint.DELETE_COMMENT, {
+      ...requestParams,
+      projectId: this.projectId
+    });
+  }
+
+   addOrUpdateLike(requestParams: Omit<AddOrUpdateLikeRequestParams, "projectId">): Promise<DeleteCommentResponseParams> {
+    return callDiverse<DeleteCommentRequestParams, DeleteCommentResponseParams>(DiverseEndpoint.ADD_OR_UPDATE_LIKE, {
+      ...requestParams,
+      projectId: this.projectId
+    });
+  }
+
+   deleteLike(requestParams: Omit<DeleteLikeRequestParams, "projectId">): Promise<DeleteLikeResponseParams> {
+    return callDiverse<DeleteLikeRequestParams, DeleteLikeResponseParams>(DiverseEndpoint.DELETE_LIKE, {
+      ...requestParams,
+      projectId: this.projectId
+    });
+  }
 
 
-export function getBestComments(requestParams: GetBestCommentsRequestParams): Promise<GetBestCommentsResponseParams> {
-  return callDiverse<GetBestCommentsRequestParams, GetBestCommentsResponseParams>(DiverseAPI.GET_BEST_COMMENTS, requestParams);
-}
+   getBestComments(requestParams: Omit<GetBestCommentsRequestParams, "projectId">): Promise<GetBestCommentsResponseParams> {
+    return callDiverse<GetBestCommentsRequestParams, GetBestCommentsResponseParams>(DiverseEndpoint.GET_BEST_COMMENTS, {
+      ...requestParams,
+      projectId: this.projectId
+    });
+  }
 
-export function getRecentNoResponseComments(requestParams: GetRecentZeroReactionCommentsRequestParams): Promise<GetRecentZeroReactionCommentsResponseParams> {
-  return callDiverse<GetRecentZeroReactionCommentsRequestParams, GetRecentZeroReactionCommentsResponseParams>(DiverseAPI.GET_RECENT_NO_RESPONSE_COMMENTS, requestParams);
+   getRecentComments(requestParams: Omit<GetRecentCommentsRequestParams, "projectId">): Promise<GetRecentCommentsResponseParams> {
+    return callDiverse<GetRecentCommentsRequestParams, GetRecentCommentsResponseParams>(DiverseEndpoint.GET_RECENT_COMMENTS, {
+      ...requestParams,
+      projectId: this.projectId
+    });
+  }
 }

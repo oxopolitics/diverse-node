@@ -1,4 +1,4 @@
-import {DIVERSE_URL, DiverseAPI} from "./diverse_constants";
+import {DIVERSE_URL, DiverseEndpoint} from "./diverse_constants";
 
 /**
  * Returns the response body of the requested url, url should be encoded with encodeURIComponent if there are additional
@@ -13,7 +13,7 @@ import {DIVERSE_URL, DiverseAPI} from "./diverse_constants";
  *
  * This endpoint supports CORS.
  */
-export function callDiverse<T, R>(api: DiverseAPI, data: T): Promise<R> {
+export function callDiverse<T, R>(api: DiverseEndpoint, data: T): Promise<R> {
   let url = DIVERSE_URL[api];
 
   if (!url) {

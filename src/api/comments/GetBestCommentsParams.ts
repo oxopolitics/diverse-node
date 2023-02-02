@@ -6,16 +6,16 @@ export interface GetBestCommentsRequestParams {
   postId: string;
 }
 
+export interface ClusterData {
+  id: string;
+  bestComment: CommentSchema;
+  clusterStats: StatsForClusterSchema;
+  topComments: CommentSchema[];
+}
+
 // ID: projectId + postId
 export interface GetBestCommentsResponseParams {
   projectId: string;
   postId: string;
-  clusters: Record<
-    string,
-    {
-      bestComment: CommentSchema;
-      clusterStats: StatsForClusterSchema;
-      topComments: CommentSchema[];
-    }
-  >;
+  clusters: Record<string, ClusterData>;
 }

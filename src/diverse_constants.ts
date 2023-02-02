@@ -1,4 +1,4 @@
-export enum DiverseAPI {
+export enum DiverseEndpoint {
   ADD_COMMENT = "addComment",
   DELETE_COMMENT = "deleteComment",
   UPDATE_COMMENT = "updateComment",
@@ -6,15 +6,15 @@ export enum DiverseAPI {
   ADD_OR_UPDATE_LIKE = "addOrUpdateLike",
   DELETE_LIKE = "deleteLike",
   GET_BEST_COMMENTS = "getBestComments",
-  GET_RECENT_NO_RESPONSE_COMMENTS = "getRecentZeroReactionComments",
+  GET_RECENT_COMMENTS = "getRecentComments",
 }
 
 export const DIVERSE_URL = {
-  [DiverseAPI.ADD_COMMENT]: "https://asia-northeast3-oxopolitics-diverse.cloudfunctions.net/comments-addComment",
-  [DiverseAPI.UPDATE_COMMENT]: "https://asia-northeast3-oxopolitics-diverse.cloudfunctions.net/comments-updateComment",
-  [DiverseAPI.DELETE_COMMENT]: "https://asia-northeast3-oxopolitics-diverse.cloudfunctions.net/comments-deleteComment",
-  [DiverseAPI.ADD_OR_UPDATE_LIKE]: "https://asia-northeast3-oxopolitics-diverse.cloudfunctions.net/likes-addOrUpdateLike",
-  [DiverseAPI.DELETE_LIKE]: "https://asia-northeast3-oxopolitics-diverse.cloudfunctions.net/likes-deleteLike",
-  [DiverseAPI.GET_BEST_COMMENTS]: "https://asia-northeast3-oxopolitics-diverse.cloudfunctions.net/comments-getBestComments",
-  [DiverseAPI.GET_RECENT_NO_RESPONSE_COMMENTS]: "https://asia-northeast3-oxopolitics-diverse.cloudfunctions.net/comments-getRecentZeroReactionComments",
+  [DiverseEndpoint.ADD_COMMENT]: "https://asia-northeast3-oxopolitics-diverse.cloudfunctions.net/comments-addComment",
+  [DiverseEndpoint.UPDATE_COMMENT]: "https://asia-northeast3-oxopolitics-diverse.cloudfunctions.net/comments-updateComment",
+  [DiverseEndpoint.DELETE_COMMENT]: "https://asia-northeast3-oxopolitics-diverse.cloudfunctions.net/comments-deleteComment",
+  [DiverseEndpoint.ADD_OR_UPDATE_LIKE]: "https://asia-northeast3-oxopolitics-diverse.cloudfunctions.net/likes-addOrUpdateLike",
+  [DiverseEndpoint.DELETE_LIKE]: "https://asia-northeast3-oxopolitics-diverse.cloudfunctions.net/likes-deleteLike",
+  [DiverseEndpoint.GET_BEST_COMMENTS]: "https://asia-northeast3-oxopolitics-diverse.cloudfunctions.net/comments-getBestComments",
+  [DiverseEndpoint.GET_RECENT_COMMENTS]: "https://asia-northeast3-oxopolitics-diverse.cloudfunctions.net/comments-getRecentComments",
 };

@@ -1,13 +1,14 @@
 import { CommentSchema } from "../../models/comments/Comment";
 
-export interface GetRecentZeroReactionCommentsRequestParams {
+export interface GetRecentCommentsRequestParams {
   projectId: string;
   postId: string;
   page: number;
   commentsPerPage: number;
+  maxReactions?: number;
 }
 
-export interface GetRecentZeroReactionCommentsResponseParams {
+export interface GetRecentCommentsResponseParams {
   projectId: string;
   postId: string;
   page: number;
