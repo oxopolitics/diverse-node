@@ -1,18 +1,5 @@
 import {DIVERSE_URL, DiverseEndpoint} from "./diverse_constants";
-
-/**
- * Returns the response body of the requested url, url should be encoded with encodeURIComponent if there are additional
- * parameters for the requested url.
- *
- * Example request using URL query parameters:
- *   https://us-central1-<project-id>.cloudfunctions.net/cors?url=https%3A%2F%2Fapi.ipify.org%3Fformat%3Djson
- * Example request using request body with cURL:
- *   curl -H 'Content-Type: application/json' \
- *        -d '{"url": "https://api.ipify.org/?format=json"}' \
- *        https://us-central1-<project-id>.cloudfunctions.net/cors
- *
- * This endpoint supports CORS.
- */
+import fetch from 'cross-fetch';
 export function callDiverse<T, R>(api: DiverseEndpoint, data: T): Promise<R> {
   let url = DIVERSE_URL[api];
 
@@ -34,8 +21,8 @@ export function callDiverse<T, R>(api: DiverseEndpoint, data: T): Promise<R> {
     body: JSON.stringify(data),
   })
     .then(async (r: Response) => {
-      return r.headers.get("content-type")?.includes("application/json")
-        ? r.json()
-        : r.text();
+      return (r.headers.get("content-type")?.includes("application/json")
+        ? await r.json()
+        : await r.text()) as R;
     });
 }

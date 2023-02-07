@@ -11,6 +11,7 @@ export interface CommentSchema {
   commentId?: string;
   comment: string;
   userId: string;
+  diverseUserId: string;
   projectId: string;
   createdAt: number;
   updatedAt: number;

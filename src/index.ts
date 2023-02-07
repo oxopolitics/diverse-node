@@ -8,6 +8,7 @@ import {GetBestCommentsRequestParams, GetBestCommentsResponseParams} from "./api
 
 import {DiverseEndpoint} from "./diverse_constants";
 import {GetRecentCommentsRequestParams, GetRecentCommentsResponseParams} from "./api/comments/GetRecentCommentsParams";
+import {GetLikeRequestParams, GetLikeResponseParams} from "./api/likes/GetLikeParams";
 
 export class DiverseClient {
   projectId: string;
@@ -44,12 +45,20 @@ export class DiverseClient {
     });
   }
 
-   deleteLike(requestParams: Omit<DeleteLikeRequestParams, "projectId">): Promise<DeleteLikeResponseParams> {
-    return callDiverse<DeleteLikeRequestParams, DeleteLikeResponseParams>(DiverseEndpoint.DELETE_LIKE, {
+
+  getLike(requestParams: Omit<GetLikeRequestParams, "projectId">): Promise<GetLikeResponseParams> {
+    return callDiverse<GetLikeRequestParams, GetLikeResponseParams>(DiverseEndpoint.GET_LIKE, {
       ...requestParams,
       projectId: this.projectId
     });
   }
+
+   deleteLike(requestParams: Omit<DeleteLikeRequestParams, "projectId">): Promise<DeleteLikeResponseParams> {
+     return callDiverse<DeleteLikeRequestParams, DeleteLikeResponseParams>(DiverseEndpoint.DELETE_LIKE, {
+       ...requestParams,
+       projectId: this.projectId
+     });
+   }
 
 
    getBestComments(requestParams: Omit<GetBestCommentsRequestParams, "projectId">): Promise<GetBestCommentsResponseParams> {
