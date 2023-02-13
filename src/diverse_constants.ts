@@ -10,13 +10,23 @@ export enum DiverseEndpoint {
   GET_RECENT_COMMENTS = "getRecentComments",
 }
 
+export enum DiverseEndpointGroup {
+  COMMENTS_ENDPOINT = `https://asia-northeast3-oxopolitics-diverse.cloudfunctions.net/comments-`,
+  LIKES_ENDPOINT = "https://asia-northeast3-oxopolitics-diverse.cloudfunctions.net/likes-"
+}
+
+function getEndpoint(group: DiverseEndpointGroup, endpoint: DiverseEndpoint) {
+  return group + endpoint;
+}
+
+
 export const DIVERSE_URL = {
-  [DiverseEndpoint.ADD_COMMENT]: "https://asia-northeast3-oxopolitics-diverse.cloudfunctions.net/comments-addComment",
-  [DiverseEndpoint.UPDATE_COMMENT]: "https://asia-northeast3-oxopolitics-diverse.cloudfunctions.net/comments-updateComment",
-  [DiverseEndpoint.DELETE_COMMENT]: "https://asia-northeast3-oxopolitics-diverse.cloudfunctions.net/comments-deleteComment",
-  [DiverseEndpoint.ADD_OR_UPDATE_LIKE]: "https://asia-northeast3-oxopolitics-diverse.cloudfunctions.net/likes-addOrUpdateLike",
-  [DiverseEndpoint.GET_LIKE]: "https://asia-northeast3-oxopolitics-diverse.cloudfunctions.net/likes-" + DiverseEndpoint.GET_LIKE,
-  [DiverseEndpoint.DELETE_LIKE]: "https://asia-northeast3-oxopolitics-diverse.cloudfunctions.net/likes-deleteLike",
-  [DiverseEndpoint.GET_BEST_COMMENTS]: "https://asia-northeast3-oxopolitics-diverse.cloudfunctions.net/comments-getBestComments",
-  [DiverseEndpoint.GET_RECENT_COMMENTS]: "https://asia-northeast3-oxopolitics-diverse.cloudfunctions.net/comments-getRecentComments",
+  [DiverseEndpoint.ADD_COMMENT]: getEndpoint(DiverseEndpointGroup.COMMENTS_ENDPOINT, DiverseEndpoint.ADD_COMMENT),
+  [DiverseEndpoint.UPDATE_COMMENT]: getEndpoint(DiverseEndpointGroup.COMMENTS_ENDPOINT, DiverseEndpoint.UPDATE_COMMENT),
+  [DiverseEndpoint.DELETE_COMMENT]: getEndpoint(DiverseEndpointGroup.COMMENTS_ENDPOINT, DiverseEndpoint.DELETE_COMMENT),
+  [DiverseEndpoint.ADD_OR_UPDATE_LIKE]: getEndpoint(DiverseEndpointGroup.LIKES_ENDPOINT, DiverseEndpoint.ADD_OR_UPDATE_LIKE),
+  [DiverseEndpoint.GET_LIKE]: getEndpoint(DiverseEndpointGroup.LIKES_ENDPOINT, DiverseEndpoint.GET_LIKE),
+  [DiverseEndpoint.DELETE_LIKE]: getEndpoint(DiverseEndpointGroup.LIKES_ENDPOINT, DiverseEndpoint.DELETE_LIKE),
+  [DiverseEndpoint.GET_BEST_COMMENTS]: getEndpoint(DiverseEndpointGroup.COMMENTS_ENDPOINT, DiverseEndpoint.GET_BEST_COMMENTS),
+  [DiverseEndpoint.GET_RECENT_COMMENTS]: getEndpoint(DiverseEndpointGroup.COMMENTS_ENDPOINT, DiverseEndpoint.GET_RECENT_COMMENTS),
 };
