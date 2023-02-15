@@ -1,11 +1,10 @@
-import { Gender } from "../../models/comments/Comment";
-
-export interface AddProjectRequestParams {
-  title: string;
+export interface UpdateProjectRequestParams {
+  projectId: string;
+  title?: string;
   description?: string;
   emoji?: string;
 }
 
-export interface AddProjectResponseParams {
+export interface UpdateProjectResponseParams {
   projectId: string;
 }
