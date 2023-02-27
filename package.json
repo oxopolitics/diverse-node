@@ -1,6 +1,6 @@
 {
   "name": "diverse-node",
-  "version": "2.4.6",
+  "version": "2.5.0",
   "description": "Node module to access Diverse by oxopolitics.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
