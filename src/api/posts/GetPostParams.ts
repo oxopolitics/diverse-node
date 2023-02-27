@@ -1,7 +1,7 @@
-export interface DeletePostRequestParams {
+export interface GetPostRequestParams {
   postId: string;
 }
 
-export interface DeletePostResponseParams {
+export interface GetPostResponseParams {
   postId: string;
 }

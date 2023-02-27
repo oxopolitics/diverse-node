@@ -1,9 +1,9 @@
-export interface AddPostRequestParams {
-  userId: string;
-  projectId: string;
-  postId?: string;
+export interface UpdatePostRequestParams {
+  postId: string;
+  userId?: string;
+  title?: string;
 }
 
-export interface AddPostResponseParams {
+export interface UpdatePostResponseParams {
   postId: string;
 }
